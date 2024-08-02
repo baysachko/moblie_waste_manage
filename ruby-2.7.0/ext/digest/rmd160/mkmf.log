@@ -1,0 +1,242 @@
+"pkg-config --exists openssl"
+| pkg-config --libs openssl
+=> "-L/opt/homebrew/Cellar/openssl@3/3.3.1/lib -lssl -lcrypto\n"
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib     -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib -lssl -lcrypto  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+| pkg-config --cflags-only-I openssl
+=> "-I/opt/homebrew/Cellar/openssl@3/3.3.1/include\n"
+| pkg-config --cflags-only-other openssl
+=> "\n"
+| pkg-config --libs-only-l openssl
+=> "-lssl -lcrypto\n"
+package configuration for openssl
+incflags: -I/opt/homebrew/Cellar/openssl@3/3.3.1/include
+cflags: 
+ldflags: -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib
+libs: -lssl -lcrypto
+
+have_header: checking for openssl/ssl.h... -------------------- yes
+
+"clang -E -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <openssl/ssl.h>
+/* end */
+
+--------------------
+
+have_library: checking for CRYPTO_malloc() in -lcrypto... -------------------- yes
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib     -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lcrypto  -lssl -lcrypto  "
+conftest.c:14:57: error: use of undeclared identifier 'CRYPTO_malloc'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))CRYPTO_malloc; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))CRYPTO_malloc; return !p; }
+/* end */
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib     -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lcrypto  -lssl -lcrypto  "
+ld: warning: ignoring duplicate libraries: '-lcrypto', '-lssl'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void CRYPTO_malloc();
+15: int t(void) { CRYPTO_malloc(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for SSL_new() in -lssl... -------------------- yes
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib    -lcrypto  -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lssl -lcrypto  -lssl -lcrypto  "
+conftest.c:14:57: error: use of undeclared identifier 'SSL_new'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_new; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_new; return !p; }
+/* end */
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib    -lcrypto  -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lssl -lcrypto  -lssl -lcrypto  "
+ld: warning: ignoring duplicate libraries: '-lcrypto', '-lssl'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void SSL_new();
+15: int t(void) { SSL_new(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for RIPEMD160_Transform() in openssl/ripemd.h with -Werror=deprecated-declarations... -------------------- no
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib    -lssl -lcrypto  -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -Werror=deprecated-declarations -lssl -lcrypto  -lssl -lcrypto  "
+conftest.c:16:57: error: 'RIPEMD160_Transform' is deprecated [-Werror,-Wdeprecated-declarations]
+int t(void) { void ((*volatile p)()); p = (void ((*)()))RIPEMD160_Transform; return !p; }
+                                                        ^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/ripemd.h:51:1: note: 'RIPEMD160_Transform' has been explicitly marked deprecated here
+OSSL_DEPRECATEDIN_3_0 void RIPEMD160_Transform(RIPEMD160_CTX *c,
+^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/macros.h:194:49: note: expanded from macro 'OSSL_DEPRECATEDIN_3_0'
+#   define OSSL_DEPRECATEDIN_3_0                OSSL_DEPRECATED(3.0)
+                                                ^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/macros.h:62:52: note: expanded from macro 'OSSL_DEPRECATED'
+#     define OSSL_DEPRECATED(since) __attribute__((deprecated))
+                                                   ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ripemd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))RIPEMD160_Transform; return !p; }
+/* end */
+
+"clang -o conftest -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c  -L. -L../../.. -L/opt/homebrew/opt/openssl@1.1/lib -L. -fstack-protector-strong -L/usr/local/lib -L/opt/homebrew/Cellar/openssl@3/3.3.1/lib    -lssl -lcrypto  -lssl -lcrypto -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -Werror=deprecated-declarations -lssl -lcrypto  -lssl -lcrypto  "
+conftest.c:16:13: warning: a function declaration without a prototype is deprecated in all versions of C and is treated as a zero-parameter prototype in C2x, conflicting with a previous declaration [-Wdeprecated-non-prototype]
+extern void RIPEMD160_Transform();
+            ^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/ripemd.h:51:28: note: conflicting prototype is here
+OSSL_DEPRECATEDIN_3_0 void RIPEMD160_Transform(RIPEMD160_CTX *c,
+                           ^
+conftest.c:17:15: error: 'RIPEMD160_Transform' is deprecated [-Werror,-Wdeprecated-declarations]
+int t(void) { RIPEMD160_Transform(); return 0; }
+              ^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/ripemd.h:51:1: note: 'RIPEMD160_Transform' has been explicitly marked deprecated here
+OSSL_DEPRECATEDIN_3_0 void RIPEMD160_Transform(RIPEMD160_CTX *c,
+^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/macros.h:194:49: note: expanded from macro 'OSSL_DEPRECATEDIN_3_0'
+#   define OSSL_DEPRECATEDIN_3_0                OSSL_DEPRECATED(3.0)
+                                                ^
+/opt/homebrew/Cellar/openssl@3/3.3.1/include/openssl/macros.h:62:52: note: expanded from macro 'OSSL_DEPRECATED'
+#     define OSSL_DEPRECATED(since) __attribute__((deprecated))
+                                                   ^
+conftest.c:17:35: error: too few arguments to function call, expected 2, have 0
+int t(void) { RIPEMD160_Transform(); return 0; }
+              ~~~~~~~~~~~~~~~~~~~ ^
+conftest.c:16:13: note: 'RIPEMD160_Transform' declared here
+extern void RIPEMD160_Transform();
+            ^
+1 warning and 2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ripemd.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void RIPEMD160_Transform();
+17: int t(void) { RIPEMD160_Transform(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sys/cdefs.h... -------------------- yes
+
+"clang -E -I../../../.ext/include/-darwin23 -I../../.././include -I../../.././ext/digest/rmd160 -I/opt/homebrew/Cellar/openssl@3/3.3.1/include -I/opt/homebrew/opt/openssl@1.1/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/cdefs.h>
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define NDEBUG 1
+4: #define HAVE_CONFIG_H 1
+5: #define HAVE_OPENSSL_SSL_H 1
+6: #define HAVE_SYS_CDEFS_H 1
+7: #endif
+/* end */
+

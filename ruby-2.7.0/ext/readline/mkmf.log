@@ -1,0 +1,1501 @@
+have_library: checking for tgetnum() in -lncurses... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib     -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc   "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib     -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lncurses   "
+conftest.c:14:57: error: use of undeclared identifier 'tgetnum'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))tgetnum; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))tgetnum; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib     -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lncurses   "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void tgetnum();
+15: int t(void) { tgetnum(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for readline/readline.h... -------------------- yes
+
+"clang -E -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <readline/readline.h>
+/* end */
+
+--------------------
+
+have_header: checking for readline/history.h... -------------------- yes
+
+"clang -E -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <readline/history.h>
+/* end */
+
+--------------------
+
+have_library: checking for readline() in -lreadline... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:14:57: error: use of undeclared identifier 'readline'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))readline; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))readline; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void readline();
+15: int t(void) { readline(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_getc() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_getc'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_getc; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_getc; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_getc, referenced from:
+      _t in conftest-1a3db3.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_getc();
+19: int t(void) { rl_getc(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_getc_function() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_getc_function; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_filename_completion_function() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_filename_completion_function; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_username_completion_function() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_username_completion_function'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_username_completion_function; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_username_completion_function; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_username_completion_function, referenced from:
+      _t in conftest-ecd0a2.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_username_completion_function();
+19: int t(void) { rl_username_completion_function(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_completion_matches() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_completion_matches; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_refresh_line() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_refresh_line'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_refresh_line; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_refresh_line; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_refresh_line, referenced from:
+      _t in conftest-574fc4.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_refresh_line();
+19: int t(void) { rl_refresh_line(); return 0; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_deprep_term_function in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_deprep_term_function)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_completion_append_character in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_completion_append_character)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_completion_quote_character in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_completion_quote_character'; did you mean 'rl_completer_quote_characters'?
+int t(void) { const volatile void *volatile p; p = &(&rl_completion_quote_character)[0]; return !p; }
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                      rl_completer_quote_characters
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/readline/readline.h:110:15: note: 'rl_completer_quote_characters' declared here
+extern char             *rl_completer_quote_characters;
+                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_completion_quote_character)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_basic_word_break_characters in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_basic_word_break_characters)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_completer_word_break_characters in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_completer_word_break_characters)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_basic_quote_characters in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_basic_quote_characters'
+int t(void) { const volatile void *volatile p; p = &(&rl_basic_quote_characters)[0]; return !p; }
+                                                      ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_basic_quote_characters)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_completer_quote_characters in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_completer_quote_characters)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_filename_quote_characters in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_filename_quote_characters'; did you mean 'rl_completer_quote_characters'?
+int t(void) { const volatile void *volatile p; p = &(&rl_filename_quote_characters)[0]; return !p; }
+                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                      rl_completer_quote_characters
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/readline/readline.h:110:15: note: 'rl_completer_quote_characters' declared here
+extern char             *rl_completer_quote_characters;
+                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_filename_quote_characters)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_attempted_completion_over in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_attempted_completion_over)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_library_version in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_library_version)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_editing_mode in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_editing_mode'
+int t(void) { const volatile void *volatile p; p = &(&rl_editing_mode)[0]; return !p; }
+                                                      ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_editing_mode)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_line_buffer in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_line_buffer)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_point in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_point)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_char_is_quoted_p in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_char_is_quoted_p'
+int t(void) { const volatile void *volatile p; p = &(&rl_char_is_quoted_p)[0]; return !p; }
+                                                      ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_char_is_quoted_p)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_event_hook in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_event_hook'; did you mean 'rb_add_event_hook'?
+int t(void) { const volatile void *volatile p; p = &(&rl_event_hook)[0]; return !p; }
+                                                      ^~~~~~~~~~~~~
+                                                      rb_add_event_hook
+../.././include/ruby/ruby.h:2282:6: note: 'rb_add_event_hook' declared here
+void rb_add_event_hook(rb_event_hook_func_t func, rb_event_flag_t events, VALUE data);
+     ^
+conftest.c:18:53: error: subscript of pointer to function type 'void (rb_event_hook_func_t, rb_event_flag_t, VALUE)' (aka 'void (void (*)(unsigned int, unsigned long, unsigned long, unsigned long, unsigned long), unsigned int, unsigned long)')
+int t(void) { const volatile void *volatile p; p = &(&rl_event_hook)[0]; return !p; }
+                                                    ^~~~~~~~~~~~~~~~
+2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_event_hook)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_catch_sigwinch in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_catch_sigwinch'
+int t(void) { const volatile void *volatile p; p = &(&rl_catch_sigwinch)[0]; return !p; }
+                                                      ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_catch_sigwinch)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_catch_signals in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:18:55: error: use of undeclared identifier 'rl_catch_signals'
+int t(void) { const volatile void *volatile p; p = &(&rl_catch_signals)[0]; return !p; }
+                                                      ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_catch_signals)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_pre_input_hook in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_pre_input_hook)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_var: checking for rl_special_prefixes in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { const volatile void *volatile p; p = &(&rl_special_prefixes)[0]; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_cleanup_after_signal() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_cleanup_after_signal; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_free_line_state() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_free_line_state; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_clear_signals() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_clear_signals'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_clear_signals; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_clear_signals; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_clear_signals, referenced from:
+      _t in conftest-fb6bb8.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_clear_signals();
+19: int t(void) { rl_clear_signals(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_set_screen_size() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_set_screen_size; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_get_screen_size() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_get_screen_size; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_vi_editing_mode() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_vi_editing_mode'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_vi_editing_mode; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_vi_editing_mode; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_vi_editing_mode, referenced from:
+      _t in conftest-764756.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_vi_editing_mode();
+19: int t(void) { rl_vi_editing_mode(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_emacs_editing_mode() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_emacs_editing_mode'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_emacs_editing_mode; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_emacs_editing_mode; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_emacs_editing_mode, referenced from:
+      _t in conftest-7c8871.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_emacs_editing_mode();
+19: int t(void) { rl_emacs_editing_mode(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for replace_history_entry() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))replace_history_entry; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for remove_history() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))remove_history; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for clear_history() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))clear_history; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_redisplay() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_redisplay; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_insert_text() in stdio.h,readline/readline.h,readline/history.h... -------------------- yes
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_insert_text; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rl_delete_text() in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+conftest.c:18:57: error: use of undeclared identifier 'rl_delete_text'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_delete_text; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rl_delete_text; return !p; }
+/* end */
+
+"clang -o conftest -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe conftest.c  -L. -L../.. -L. -fstack-protector-strong -L/usr/local/lib    -lreadline -lncurses  -lruby.2.7-static -framework Security -framework Foundation -lpthread -ldl -lobjc -lreadline -lncurses   "
+ld: warning: ignoring duplicate libraries: '-lncurses', '-lreadline'
+ld: Undefined symbols:
+  _rl_delete_text, referenced from:
+      _t in conftest-4a7fba.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdio.h>
+ 4: #include <readline/readline.h>
+ 5: #include <readline/history.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: extern void rl_delete_text();
+19: int t(void) { rl_delete_text(); return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for rl_hook_func_t* in stdio.h,readline/readline.h,readline/history.h... -------------------- no
+
+"clang -I../../.ext/include/-darwin23 -I../.././include -I../.././ext/readline -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wdivision-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wextra-tokens  -pipe   -c conftest.c"
+conftest.c:8:9: error: unknown type name 'rl_hook_func_t'
+typedef rl_hook_func_t* conftest_type;
+        ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <stdio.h>
+4: #include <readline/readline.h>
+5: #include <readline/history.h>
+6: 
+7: /*top*/
+8: typedef rl_hook_func_t* conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+ 1: #ifndef EXTCONF_H
+ 2: #define EXTCONF_H
+ 3: #define HAVE_READLINE_READLINE_H 1
+ 4: #define HAVE_READLINE_HISTORY_H 1
+ 5: #define HAVE_RL_GETC_FUNCTION 1
+ 6: #define HAVE_RL_FILENAME_COMPLETION_FUNCTION 1
+ 7: #define HAVE_RL_COMPLETION_MATCHES 1
+ 8: #define HAVE_RL_DEPREP_TERM_FUNCTION 1
+ 9: #define HAVE_RL_COMPLETION_APPEND_CHARACTER 1
+10: #define HAVE_RL_BASIC_WORD_BREAK_CHARACTERS 1
+11: #define HAVE_RL_COMPLETER_WORD_BREAK_CHARACTERS 1
+12: #define HAVE_RL_COMPLETER_QUOTE_CHARACTERS 1
+13: #define HAVE_RL_ATTEMPTED_COMPLETION_OVER 1
+14: #define HAVE_RL_LIBRARY_VERSION 1
+15: #define HAVE_RL_LINE_BUFFER 1
+16: #define HAVE_RL_POINT 1
+17: #define HAVE_RL_PRE_INPUT_HOOK 1
+18: #define HAVE_RL_SPECIAL_PREFIXES 1
+19: #define HAVE_RL_CLEANUP_AFTER_SIGNAL 1
+20: #define HAVE_RL_FREE_LINE_STATE 1
+21: #define HAVE_RL_SET_SCREEN_SIZE 1
+22: #define HAVE_RL_GET_SCREEN_SIZE 1
+23: #define HAVE_REPLACE_HISTORY_ENTRY 1
+24: #define HAVE_REMOVE_HISTORY 1
+25: #define HAVE_CLEAR_HISTORY 1
+26: #define HAVE_RL_REDISPLAY 1
+27: #define HAVE_RL_INSERT_TEXT 1
+28: #define rl_hook_func_t Function
+29: #endif
+/* end */
+

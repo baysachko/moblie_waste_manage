@@ -1,0 +1,9 @@
+#define ABS_SRCDIR "/Users/vodka/Code/flutter/moblie_waste_manage/ruby-2.7.0"
+#define BUILDDIR   "/Users/vodka/Code/flutter/moblie_waste_manage/ruby-2.7.0"
+#define LIBPATHENV "DYLD_FALLBACK_LIBRARY_PATH"
+#define PRELOADENV "DYLD_INSERT_LIBRARIES"
+#define PATH_SEPARATOR ":"
+#define PATH_SEP   ':'
+#define EXTOUT     ".ext"
+#define ARCH       "-darwin23"
+#define SOEXT      "dylib"

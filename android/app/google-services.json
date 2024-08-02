@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "319763643943",
+    "firebase_url": "https://waste-management-9c00c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "waste-management-9c00c",
+    "storage_bucket": "waste-management-9c00c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319763643943:android:f8e507443c871c50349802",
+        "android_client_info": {
+          "package_name": "waste.management.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMxE7VUTT-cQCQm9hVFtnRZAuaupkS_Ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

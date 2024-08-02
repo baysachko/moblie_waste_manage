@@ -1,0 +1,1 @@
+ /Users/vodka/Code/flutter/moblie_waste_manage/.dart_tool/flutter_build/05408fea2941adbf32fe9a4884a931e8/native_assets.yaml: 
