@@ -17,11 +17,11 @@ samples, guidance on mobile development, and a full API reference.
 
 For Working Google GPS, you will need to have a Google Map API.
 Selected APIs:
-Maps SDK for iOS
-Directions API
-Geocoding API
-Places API
-Distance Matrix API
+- Maps SDK for iOS
+- Directions API
+- Geocoding API
+- Places API
+- Distance Matrix API
 
 
 There are 2 files that you will need to place your Google Map API in:
