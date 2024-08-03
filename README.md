@@ -26,7 +26,7 @@ You will also need to connect to your firebase API.
 
 After connecting to all APIs, you can run flutter command to run the app.
 
-"flutter run"
+#flutter run
 
 
 
