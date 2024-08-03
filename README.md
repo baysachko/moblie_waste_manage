@@ -22,6 +22,13 @@ There are 2 files that you will need to place your Google Map API in:
 2. moblie_waste_manage/lib/map_updates.dart
 
 
+You will also need to connect to your firebase API.
+
+After connecting to all APIs, you can run flutter command to run the app.
+
+"flutter run"
+
+
 
 
 
